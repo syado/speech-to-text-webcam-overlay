@@ -35,10 +35,16 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .hidden {
-	opacity: 0;
+	opacity: 0 !important;
 }
 
 .bg_green {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+	transition: all 0.3s;
 	background-color: #00FF00;
 }
 
@@ -112,15 +118,16 @@ a:link, a:visited, a:hover, a:active {
 }
 #FullScreenBtn{
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
-	opacity: 0.8;
+	right: 20px;
+	bottom: 20px;
+	opacity: 0.4;
+	transition: all 0.3s;
 }
 #FullScreenBtn:hover{
 	opacity: 1;
 }
 #video_wrapper:-webkit-full-screen #FullScreenBtn{
-	opacity: 0.8;
+	opacity: 0.4;
 }
 #video_wrapper:-webkit-full-screen #FullScreenBtn:hover{
 	opacity: 1;
