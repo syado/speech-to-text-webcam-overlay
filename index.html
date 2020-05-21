@@ -28,20 +28,6 @@
         </div>
         <div class="control_wrapper">
             <div class="control_form">
-                <label for="input_lang" class="control_label">入力元</label>
-                <select id="input_lang">
-                    <option value="ja">日本語</option>
-                    <option value="en">English</option>
-                </select>
-            </div>
-            <div class="control_form">
-                <label for="output_lang" class="control_label">出力元</label>
-                <select id="output_lang">
-                    <option value="ja">日本語</option>
-                    <option value="en">English</option>
-                </select>
-            </div>
-            <div class="control_form">
                 <label for="slider_font_size" class="control_label">大きさ</label>
                 <input id="slider_font_size" type="range" class="control_input" value="68" min="1" max="150" step="1"
                     oninput="document.getElementById('result_text').style.fontSize=this.value+'px',document.getElementById('value_font_size').innerHTML=this.value">
@@ -95,6 +81,42 @@
                 <div class="control_value">
                     <span id="value_font_color">#ffffff</span>
                 </div>
+            </div>
+            <div class="control_form">
+                <label for="input_lang" class="control_label">入力元</label>
+                <select id="input_lang">
+                    <option value="ja">日本語</option>
+                    <option value="en">英語</option>
+                    <option value="ar">アラビア語</option>
+                    <option value="it">イタリア語</option>
+                    <option value="el">ギリシャ語</option>
+                    <option value="ko">韓国</option>
+                    <option value="la">ラテン語</option>
+                    <option value="eo">エスペラント語</option>
+                    <option value="ms">マレー語</option>
+                    <option value="es">スペイン語</option>
+                    <option value="ru">ロシア語</option>
+                    <option value="fr">フランス語</option>
+                    <option value="zh">中国語</option>
+                </select>
+            </div>
+            <div class="control_form">
+                <label for="output_lang" class="control_label">出力元</label>
+                <select id="output_lang">
+                    <option value="ja">日本語</option>
+                    <option value="en">英語</option>
+                    <option value="ar">アラビア語</option>
+                    <option value="it">イタリア語</option>
+                    <option value="el">ギリシャ語</option>
+                    <option value="ko">韓国</option>
+                    <option value="la">ラテン語</option>
+                    <option value="eo">エスペラント語</option>
+                    <option value="ms">マレー語</option>
+                    <option value="es">スペイン語</option>
+                    <option value="ru">ロシア語</option>
+                    <option value="fr">フランス語</option>
+                    <option value="zh">中国語</option>
+                </select>
             </div>
 
             <div class="control_button_wrapper">
@@ -224,14 +246,14 @@
                             document.getElementById('result_log').insertAdjacentHTML('beforeend', out);
                             document.getElementById('result_log').insertAdjacentHTML('beforeend', '\n');
                         }
-                        google_translate(text = results[i][0].transcript, func=func)
+                        google_translate(text = results[i][0].transcript, func=func, source = document.getElementById('input_lang').value, target = document.getElementById('output_lang').value)
                         vr_function();
                         flag_speech = 0;
                     } else {
                         func = function(out){
                             document.getElementById('result_text').innerHTML = out;
                         }
-                        google_translate(text = results[i][0].transcript,func=func)
+                        google_translate(text = results[i][0].transcript,func=func, source = document.getElementById('input_lang').value, target = document.getElementById('output_lang').value)
                         flag_speech = 1;
                         
                     }
