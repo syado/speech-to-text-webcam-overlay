@@ -120,7 +120,6 @@
                     <option value="de">ドイツ語</option>
                 </select>
             </div>
-
             <div class="control_button_wrapper">
                 <input type="button" value="カメラ表示/非表示" class="control_button"
                     onclick="document.getElementById('result_video').classList.toggle('hidden')">
@@ -129,6 +128,10 @@
                 <input type="button" value="全画面表示アイコン表示/非表示" class="control_button"
                     onclick="document.getElementById('FullScreenBtn').classList.toggle('hidden')">
             </div>
+        </div>
+        <div class="control_wrapper">
+            <label for="gas_api" class="control_label">翻訳API URL</label>
+            <input id="gas_api" type="text">
         </div>
         <div class="help_wrapper">
             <span id="help" class="">カメラやマイクが機能しないときはページを再読み込みするか，ブラウザの設定を確認してください: <a
@@ -342,7 +345,8 @@
 
     //翻訳
     function google_translate(text = "こんにちは", func, source = "ja", target = "en") {
-        const endpoint = `https://script.google.com/macros/s/AKfycbwuW_K_7bRDqdthSfucFms56BaRWgc9FMBzKWk4Fg/exec?text=${text}&source=${source}&target=${target}`;
+        const baseurl = document.getElementById('gas_api').value
+        const endpoint = `${baseurl}?text=${text}&source=${source}&target=${target}`;
         console.log(endpoint)
         $.ajax({
             type: 'GET',
